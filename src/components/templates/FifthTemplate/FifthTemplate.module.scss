@@ -1,0 +1,44 @@
+@import "../../../styles/OrensMixins.scss";
+@import "../../../styles/OrensColorPallete.scss";
+.container {
+  background: url("../../../assets/FifthTemplate/background.png");
+  position: relative;
+  @include templateContainer;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 0;
+  margin: 400px 0 0 0;
+}
+
+.box {
+  display: inline;
+  border-radius: 4px;
+  background-color: #152c3a;
+  padding: 15px 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: $fontColor_light;
+}
+
+.header {
+  font-size: 50px;
+  color: $fontColor_light;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.text {
+  max-width: 300px;
+  font-size: 20px;
+  color: $fontColor_light;
+  font-style: italic;
+}
+
+.icons {
+  display: flex;
+  gap: 0 15px;
+}

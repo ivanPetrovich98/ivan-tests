@@ -1,0 +1,50 @@
+@import "../../../styles/OrensMixins.scss";
+@import "../../../styles/OrensColorPallete.scss";
+.container {
+  background-image: url("../../../assets/FirstTemplate/background.png");
+  @include templateContainer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 530px 35px 0;
+}
+.logo {
+  width: 100px;
+}
+
+.date {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #c78e0a;
+  font-family: "MontserratRoman";
+  color: $fontColor_light;
+  font-weight: bold;
+
+  display: flex;
+}
+
+.title {
+  font-size: 35px;
+  font-family: "Playfair Display";
+  color: $fontColor_light;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+  align-content: flex-end;
+  text-align: end;
+}
+.content {
+  font-size: 20px;
+  font-family: "MontserratRoman";
+  color: $fontColor_light;
+  line-height: 0.834;
+  line-height: 1.2;
+  margin-top: 10px;
+  text-align: end;
+  max-width: 230px;
+  margin-bottom: 200px;
+}

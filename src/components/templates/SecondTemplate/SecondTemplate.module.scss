@@ -1,0 +1,48 @@
+@import "../../../styles/OrensMixins.scss";
+@import "../../../styles/OrensColorPallete.scss";
+.container {
+  background: url("../../../assets/SecondTemplate/oil.png"),
+    url("../../../assets/SecondTemplate/DesignOil.png"),
+    url("../../../assets/SecondTemplate/Designbackgraund.png");
+  @include templateContainer;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 45px 0;
+  margin: 435px 35px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    background: url("../../../assets/SecondTemplate/ShapeDate.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 237px;
+    height: 49px;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $fontColor_light;
+  }
+}
+.header {
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $fontColor_light;
+  font-style: italic;
+}
+.text {
+  max-width: 300px;
+  font-size: 20px;
+  color: $fontColor_light;
+  line-height: 1.2;
+  align-self: flex-end;
+}

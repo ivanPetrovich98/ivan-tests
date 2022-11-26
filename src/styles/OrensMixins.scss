@@ -1,0 +1,107 @@
+@import "./OrensVars.scss";
+@import "./OrensColorPallete.scss";
+
+@mixin labelFont {
+  font-size: $labelFontSize;
+  font-weight: $labelFontWeight;
+
+  @media screen and (max-width: $containerWidth) {
+    font-size: $ssLabelFontSize;
+  }
+}
+@mixin labelFileInput {
+  font-size: $labelFontSize;
+  font-weight: $labelFontWeight;
+  background-color: $buttBackground;
+  padding: $buttonPadding;
+  color: $fontColor_light;
+  border-radius: 0.4rem;
+  align-self: center;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: $buttBackground_onHover;
+  }
+
+  &:disabled {
+    background-color: $buttBackground_disabled;
+  }
+  width: clamp(200px, 50%, $buttonWidth);
+  @media screen and (max-width: $containerWidth) {
+    font-size: $ssLabelFontSize;
+  }
+}
+
+@mixin inputFont {
+  font-size: $inputFontSize;
+  font-weight: $inputFontWeight;
+  @media screen and (max-width: $containerWidth) {
+    font-size: $ssInputFontSize;
+  }
+}
+
+@mixin listFont {
+  font-size: $listFontSize;
+  font-weight: $listFontWeight;
+}
+
+@mixin defaultButton {
+  @include labelFont;
+  align-self: center;
+  background-color: $buttBackground;
+  color: $fontColor_light;
+  padding: $buttonPadding;
+  margin: 0.7rem;
+  border: none;
+  border-radius: 0.4rem;
+  width: clamp(200px, 50%, $buttonWidth);
+  transition: all 0.1s;
+
+  &:hover {
+    background-color: $buttBackground_onHover;
+  }
+
+  &:disabled {
+    background-color: $buttBackground_disabled;
+  }
+
+  // @media all and (max-width: $containerWidth) {
+  //     width: 100%;
+  // }
+}
+
+// Will cover input and select tags
+@mixin singleFieldInput {
+  @include inputFont;
+  width: 100%;
+  padding: $inputPadding;
+  border: none;
+  border-radius: 0.4rem;
+  transition: all 0.1s;
+
+  &:focus {
+    outline: 3px solid $buttBackground;
+  }
+}
+
+// Will cover color input
+@mixin colorFieldInput {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 20px;
+  padding: 5px;
+  &::-webkit-color-swatch {
+    border-radius: 20px;
+    border: none;
+  }
+}
+
+// Will cover template
+@mixin templateContainer {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 540px;
+  height: 960px;
+}

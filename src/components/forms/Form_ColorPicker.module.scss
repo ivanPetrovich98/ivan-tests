@@ -1,0 +1,70 @@
+@import "../../styles/OrensMixins.scss";
+
+.title {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.setNewsItemMainContainer {
+  font-size: $labelFontSize;
+  display: flex;
+  flex-direction: column;
+  width: $containerWidth;
+  min-width: 320px;
+  padding: 1rem;
+  gap: 0.5rem;
+  border-radius: 0.4rem;
+  background-color: $formBackground;
+  transition: all 0.1s;
+
+  @media all and (max-width: $containerWidth) {
+    width: 100%;
+  }
+
+  label {
+    @include labelFont;
+    padding-bottom: 0.3rem;
+  }
+}
+
+.responsiveContainer {
+  width: 100%;
+  display: flex;
+  padding: 0.25rem;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media all and (max-width: $containerWidth) {
+    flex-direction: column;
+  }
+}
+
+.responsiveRowText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input {
+    @include singleFieldInput;
+  }
+  select {
+    @include singleFieldInput;
+  }
+  @media all and (max-width: $containerWidth) {
+    width: 100%;
+  }
+}
+.responsiveRowColor {
+  display: flex;
+  gap: 0 15px;
+  flex-direction: row;
+  width: 100%;
+  input {
+    @include colorFieldInput;
+  }
+  @media all and (max-width: $containerWidth) {
+    width: 100%;
+  }
+}
