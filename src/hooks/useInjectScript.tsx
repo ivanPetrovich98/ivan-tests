@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-// const url = 'https://apis.google.com/js/api.js';
-
-type InjectorType = "init" | "loading" | "loaded" | "error";
-interface InjectorState {
-  queue: Record<string, ((e: boolean) => void)[]>;
-  injectorMap: Record<string, InjectorType>;
-  scriptMap: Record<string, HTMLScriptElement>;
-}
+import { InjectorState, StateInject } from "../types";
 
 const injectorState: InjectorState = {
   queue: {},
@@ -14,13 +7,8 @@ const injectorState: InjectorState = {
   scriptMap: {},
 };
 
-type StateType = {
-  loaded: boolean;
-  error: boolean;
-};
-
 export default function useInjectScript(url: string): [boolean, boolean] {
-  const [state, setState] = useState<StateType>({
+  const [state, setState] = useState<StateInject>({
     loaded: false,
     error: false,
   });

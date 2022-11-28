@@ -45,3 +45,24 @@ export type Template = {
   date: string;
   color: string;
 };
+
+// hooks type start
+type InjectorType = "init" | "loading" | "loaded" | "error";
+
+export interface InjectorState {
+  queue: Record<string, ((e: boolean) => void)[]>;
+  injectorMap: Record<string, InjectorType>;
+  scriptMap: Record<string, HTMLScriptElement>;
+}
+
+export type StateInject = {
+  loaded: boolean;
+  error: boolean;
+};
+// hooks type end
+
+export type Folder = {
+  id: string;
+  name: string;
+};
+export type FileOrNull = Folder | null;

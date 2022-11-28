@@ -6,7 +6,7 @@ import NavBar from "./pages/NavBar";
 import { GenericProvider } from "./providers/GenericProvider";
 import HomePage from "./pages/Home";
 import { ChangePicture } from "./pages/ChangePicture";
-import {UploadFile} from "./pages/UploadFile/UploadFile"
+import { UploadFile } from "./pages/UploadFile/UploadFile";
 
 function App() {
   return (
