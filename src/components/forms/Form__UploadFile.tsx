@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Form__UploadFile.module.scss";
 
-const url3 =
-  "https://script.google.com/macros/s/AKfycbx2jAPXnZwb_njTN2VFCVwrHuJlI1OXpydmP7V4CxiF1N9IdkZkXPEslEvb_cdkkN75iw/exec";
+const url =
+  "https://script.google.com/macros/s/AKfycbwhqXGHwxrMYjp1l2TMXznCfDnpbiTzX7TduwntGxhLxz4_JttoLmzzw_vglN4QhEXe/exec";
 export const FormUploadFile = () => {
   const [file, setFile] = useState<File | null>(null);
   const [disable, setDisable] = useState<boolean>(true); // disable the button if the photo is larger than 10mb or empty
@@ -27,18 +27,27 @@ export const FormUploadFile = () => {
     if (file) {
       const fr = new FileReader();
       fr.readAsArrayBuffer(file);
-      fr.onload = (f: any) => {
+      fr.onload = (e: any) => {
         const qs = new URLSearchParams({
           filename: file.name,
           mimeType: file.type,
         });
-        fetch(`${url3}?${qs}`, {
+        setButtonContent("Uploading...");
+        setDisable(true); // disable the button
+        fetch(`${url}?${qs}`, {
           method: "POST",
-          body: JSON.stringify(Array.from(new Int8Array(f.target.result))),
+          body: JSON.stringify(Array.from(new Int8Array(e.target.result))),
         })
-          .then((res) => res.json())
-          .then(console.log)
-          .catch(console.log);
+          .then((res) => {
+            setButtonContent("Send to drive");
+            alert("Success!!!");
+            setDisable(false);
+          })
+          .catch((error) => {
+            setButtonContent("Send to drive");
+            setDisable(false);
+            alert("Something went wrong");
+          });
       };
     }
   };
