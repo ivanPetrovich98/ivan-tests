@@ -105,7 +105,46 @@ export const FormUploadFile = () => {
       setDisable(false);
     }
   };
-
+  const uploadFile2 = async () => {
+    if (file) {
+      const imageUrl = URL.createObjectURL(file); // Please set the URL of image.
+      console.log(imageUrl);
+      const url =
+        "https://script.google.com/macros/s/AKfycbxGUJk4Mnc4mGI2z_EPvCNeGa8XxEKGJMBqulJ4dgGtA9T9vbXeAg8xpKRDjVSXPhLmkw/exec"; // Please set the URL of Web Apps.
+      const qs = new URLSearchParams({
+        imageUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
+        filename: file.name,
+        folderId: "1_vIv_s8c0t2H_90rec0uhVZMYUSXkAEK", // Please set folder ID.
+      });
+      console.log(qs);
+      fetch(`${url}?${qs}`)
+        .then((res) => res.json())
+        .then(console.log)
+        .catch(console.log);
+    }
+  };
+  // https://script.google.com/macros/s/AKfycbz88xNLLahYzp-_Zyr9SMyupoMEJHcEGE6Y6kHSLJd6aX4KpYSOtbR0OlWNz6ccsF3jxg/exec
+  const uploadFile3 = async () => {
+    if (file) {
+      const form = new FormData();
+      form.append("file", file);
+      const url =
+        "https://script.google.com/macros/s/AKfycbz88xNLLahYzp-_Zyr9SMyupoMEJHcEGE6Y6kHSLJd6aX4KpYSOtbR0OlWNz6ccsF3jxg/exec"; // Please set the URL of Web Apps.
+      const qs = new URLSearchParams({
+        filename: file.name,
+        folderId: "1_vIv_s8c0t2H_90rec0uhVZMYUSXkAEK", // Please set folder ID.
+      });
+      console.log(qs);
+      fetch(url, {
+        method: "POST",
+        body: form,
+      })
+        .then((res) => res.json())
+        .then(console.log)
+        .catch(console.log);
+    }
+  };
   const uploadFile = async (id: string) => {
     if (file) {
       const form = new FormData();
@@ -205,6 +244,8 @@ export const FormUploadFile = () => {
           )}
         </div>
       </form>
+      <button onClick={uploadFile2}>uploadFile2</button>
+      <button onClick={uploadFile3}>uploadFile3</button>
       {!authorized && <button onClick={login}>Login</button>}
     </div>
   );
